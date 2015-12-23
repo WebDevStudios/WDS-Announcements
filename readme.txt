@@ -50,6 +50,10 @@ You can also immediately echo the announcement without using `echo` by passing a
 
 == Changelog ==
 
+= 0.1.1 =
+* added `wds_do_announcement` `do_action`
+* added action hooks around and inside the announcement
+
 = 0.1.0 =
 * First release
 
