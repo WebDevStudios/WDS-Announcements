@@ -11,7 +11,29 @@ License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 
-Sticky banner Announcement CPT
+Create custom, sticky announcements at the top of your site.
+
+=== Usage ===
+
+To display the announcement banner, use either the template tag or the `do_action`:
+
+**Template Tag Method**
+
+```php
+<?php echo wds_announcements_content(); ?>
+```
+
+You can also immediately echo the announcement without using `echo` by passing a `true` value to the `wds_announcements_content` function.
+
+```php
+<?php wds_announcements_content( true ); ?>
+```
+
+**`do_action` Method**
+
+```php
+<?php do_action( 'wds_do_announcement' ); ?>
+```
 
 == Installation ==
 
