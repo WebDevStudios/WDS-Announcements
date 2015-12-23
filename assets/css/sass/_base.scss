@@ -1,0 +1,90 @@
+//--------------------------------------------------------------
+// base Announcement styles
+//
+// - .announcement_wrap
+// - .announcement_bar
+// - .has-announcement 
+// - .announcement
+//--------------------------------------------------------------
+
+.announcement_wrap {
+   background: lighten($color-red, 44%);
+   left: 0;
+   overflow: hidden;
+   position: fixed;
+   top: 0;
+   width: 100%;
+   z-index: 999;
+
+   #dismiss {
+	   color: darken($color-red, 30%);
+	   display: inline-block;
+	   margin-top: -15px;
+	   position: absolute;
+	   right: 10px;
+	   top: 50%;
+	   
+	   .icon-close {		   
+		   background: url('../images/close.svg') center center no-repeat;
+		   display: block;
+		   height: 30px;
+		   width: 30px;
+	   }
+
+	   &:hover {
+		   cursor: pointer;
+	   }
+   } // #dismiss
+} // .announcement_wrap
+
+.announcement_bar {
+	display: none;
+} // .announcement_bar
+
+.has-announcement {
+	
+	#page {
+		position: relative;
+	}
+	
+	.announcement_bar {
+		display: block;
+		
+		@include fadeInDown();
+	}
+} // .has-announcement
+
+.announcement {
+   color: darken($color-red, 30%);
+   font-size: 16px;
+   line-height: 1;
+   margin: 0 auto;
+   max-width: 620px;
+   padding: 10px;
+   position: relative;
+   text-align: center;
+   width: 100%;
+   
+   @include wider-than(tablet-landscape) {
+	   padding: 22px 10px;
+	   
+	   @include wider-than(tablet-landscape) {
+		   font-size: 18px;
+	   }
+   }
+
+   a {
+	   color: darken($color-red, 30%);
+	   text-decoration: underline;
+	   
+	   &:focus,
+	   &:hover {
+		   color: darken($color-red, 38%);
+	   }
+   }
+   
+   .message {
+	   line-height: 1.5;
+	   margin: 0 30px;
+   }
+} // .announcement

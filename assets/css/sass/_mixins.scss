@@ -1,0 +1,42 @@
+// Mixins
+// --------------------------------------------------
+
+// Clearfix
+// ----------------------------------
+%clearfix {
+
+	&:before,
+	&:after {
+		content: "";
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+
+// Media Queries
+// ----------------------------------
+@mixin wider-than($point) {
+
+	@if $point == xlarge-desktop {
+	    @media screen and (min-width: $xlarge-desktop) { @content; } // 1400px
+	}
+
+	@else if $point == large-desktop {
+		@media screen and (min-width: $large-desktop) { @content; } // 1000px
+	}
+
+	@else if $point == desktop {
+		@media screen and (min-width: $desktop) { @content; } // 768px
+	}
+
+	@else if $point == tablet {
+		@media screen and (min-width: $tablet) { @content; } // 480px
+	}
+
+	@else {
+		@media screen and (min-width: $point) { @content; }
+	}
+}

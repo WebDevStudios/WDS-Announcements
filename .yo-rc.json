@@ -1,0 +1,17 @@
+{
+  "generator-plugin-wp": {
+    "name": "WDS Announcement Banner",
+    "homepage": "http://webdevstudios.com",
+    "description": "Sticky banner Announcement CPT",
+    "version": "0.1.0",
+    "author": "WebDevStudios",
+    "authoremail": "contact@webdevstudios.com",
+    "authorurl": "http://webdevstudios.com",
+    "license": "GPLv2",
+    "slug": "wds-announcement-banner",
+    "classname": "WDS_Announcement_Banner",
+    "classprefix": "WDSAB_",
+    "prefix": "wds_announcement_banner",
+    "year": 2015
+  }
+}

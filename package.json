@@ -1,0 +1,35 @@
+{
+  "name": "wds-announcement",
+  "title": "WDS Announcement",
+  "version": "0.1.0",
+  "description": "Sticky banner Announcement CPT",
+  "author": {
+    "name": "WebDevStudios",
+    "url": "http://webdevstudios.com"
+  },
+  "license": "GPLv2",
+  "devDependencies": {
+    "autoprefixer": "latest",
+    "babel-preset-es2015": "^6.3.13",
+    "babelify": "^7.2.0",
+    "browserify-shim": "^3.8.11",
+    "css-mqpacker": "latest",
+    "grunt": "latest",
+    "grunt-banner": "^0.6.0",
+    "grunt-browserify": "^4.0.1",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-jshint": "^0.11.3",
+    "grunt-contrib-uglify": "^0.11.0",
+    "grunt-contrib-watch": "latest",
+    "grunt-cssnano": "latest",
+    "grunt-postcss": "latest",
+    "grunt-sass": "^1.1.0",
+    "grunt-svgmin": "latest",
+    "grunt-wp-i18n": "latest",
+    "js-cookie": "^2.0.4",
+    "load-grunt-tasks": "latest"
+  },
+  "browserify-shim": {
+    "jquery": "global:jQuery"
+  }
+}

@@ -1,0 +1,17 @@
+/**
+ * WDS Announcement
+ * http://webdevstudios.com
+ *
+ * Copyright (c) 2015 WebDevStudios
+ * Licensed under the GPLv2+ license.
+ */
+ 
+ @import "variables";
+ @import "mixins";
+ 
+ // Bower Animate.css dependency
+ // https://github.com/geoffgraham/animate.scss
+ @import "../../bower/animatewithsass/_properties";
+ @import "../../bower/animatewithsass/_fading-entrances/_fadeInDown";
+ 
+ @import "base";

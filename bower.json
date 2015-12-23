@@ -1,0 +1,19 @@
+{
+  "name": "wds-announcement-banner",
+  "description": "Sticky banner Announcement CPT",
+  "license": "GPLv2",
+  "authors": [
+    "WebDevStudios"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "animatewithsass": "~3.2.2"
+  }
+}

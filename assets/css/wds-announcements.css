@@ -1,0 +1,138 @@
+/**
+ * WDS Announcement
+ * http://webdevstudios.com
+ *
+ * Copyright (c) 2015 WebDevStudios
+ * Licensed under the GPLv2+ license.
+ */
+@-webkit-keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-20px);
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+/* line 10, /Applications/MAMP/htdocs/wds7.dev/wp-content/plugins/wds-announcements/assets/css/sass/_base.scss */
+.announcement_wrap {
+  background: #ffe0e0;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+/* line 19, /Applications/MAMP/htdocs/wds7.dev/wp-content/plugins/wds-announcements/assets/css/sass/_base.scss */
+.announcement_wrap #dismiss {
+  color: #660000;
+  display: inline-block;
+  margin-top: -15px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+}
+
+/* line 27, /Applications/MAMP/htdocs/wds7.dev/wp-content/plugins/wds-announcements/assets/css/sass/_base.scss */
+.announcement_wrap #dismiss .icon-close {
+  background: url("../images/close.svg") center center no-repeat;
+  display: block;
+  height: 30px;
+  width: 30px;
+}
+
+/* line 34, /Applications/MAMP/htdocs/wds7.dev/wp-content/plugins/wds-announcements/assets/css/sass/_base.scss */
+.announcement_wrap #dismiss:hover {
+  cursor: pointer;
+}
+
+/* line 40, /Applications/MAMP/htdocs/wds7.dev/wp-content/plugins/wds-announcements/assets/css/sass/_base.scss */
+.announcement_bar {
+  display: none;
+}
+
+/* line 46, /Applications/MAMP/htdocs/wds7.dev/wp-content/plugins/wds-announcements/assets/css/sass/_base.scss */
+.has-announcement #page {
+  position: relative;
+}
+
+/* line 50, /Applications/MAMP/htdocs/wds7.dev/wp-content/plugins/wds-announcements/assets/css/sass/_base.scss */
+.has-announcement .announcement_bar {
+  display: block;
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  -webkit-animation-timing-function: ease;
+  animation-timing-function: ease;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* line 57, /Applications/MAMP/htdocs/wds7.dev/wp-content/plugins/wds-announcements/assets/css/sass/_base.scss */
+.announcement {
+  color: #660000;
+  font-size: 16px;
+  line-height: 1;
+  margin: 0 auto;
+  max-width: 620px;
+  padding: 10px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+/* line 76, /Applications/MAMP/htdocs/wds7.dev/wp-content/plugins/wds-announcements/assets/css/sass/_base.scss */
+.announcement a {
+  color: #660000;
+  text-decoration: underline;
+}
+
+/* line 80, /Applications/MAMP/htdocs/wds7.dev/wp-content/plugins/wds-announcements/assets/css/sass/_base.scss */
+.announcement a:focus, .announcement a:hover {
+  color: #3d0000;
+}
+
+/* line 86, /Applications/MAMP/htdocs/wds7.dev/wp-content/plugins/wds-announcements/assets/css/sass/_base.scss */
+.announcement .message {
+  line-height: 1.5;
+  margin: 0 30px;
+}
+
+@media screen and (min-width: tablet-landscape) {/* line 57, /Applications/MAMP/htdocs/wds7.dev/wp-content/plugins/wds-announcements/assets/css/sass/_base.scss */
+  .announcement {
+    padding: 22px 10px;
+  }
+}
+
+@media screen and (min-width: tablet-landscape) and (min-width: tablet-landscape) {/* line 57, /Applications/MAMP/htdocs/wds7.dev/wp-content/plugins/wds-announcements/assets/css/sass/_base.scss */
+  .announcement {
+    font-size: 18px;
+  }
+}
+/*# sourceMappingURL=wds-announcements.css.map */
