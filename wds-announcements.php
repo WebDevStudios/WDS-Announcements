@@ -2,8 +2,8 @@
 /**
  * Plugin Name: WDS Announcements
  * Plugin URI:  http://webdevstudios.com
- * Description: Sticky banner Announcement CPT
  * Version:     0.1.0
+ * Description: Create custom, sticky announcements at the top of your site
  * Author:      WebDevStudios
  * Author URI:  http://webdevstudios.com
  * Donate link: http://webdevstudios.com
