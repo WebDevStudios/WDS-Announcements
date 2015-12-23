@@ -38,6 +38,7 @@ class WDS_Announcements_Frontend {
 	public function hooks() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'wp_enqueue_styles', array( $this, 'enqueue_styles' ) );
+		add_action( 'wds_do_announcement', array( $this, 'show' ) );
 	}
 
 	public function get() {
@@ -56,25 +57,31 @@ class WDS_Announcements_Frontend {
 			$link = get_post_meta( $announcement->ID, 'wds_announcements_url', true );
 			$link_start = $link ? '<a href="' . esc_url( $link ) .'">' : '';
 			$link_end = $link ? '</a>' : '';
+			do_action( 'wds_announcement_before' );
 			?>
 			<div class="announcement_wrap announcement_bar">
 				<div class="announcement">
 					<div class="announcement-box">
-						
+
+						<?php do_action( 'wds_announcement_top' ); ?>
+
 						<?php echo $link_start; ?>
 							<div class="message">
 								<span><?php echo get_the_title( $announcement->ID ); ?></span>
 							</div>
 						<?php echo $link_end; ?>
-						
+
+						<?php do_action( 'wds_announcement_bottom' ); ?>
+
 						<div id="dismiss">
 							<i class="icon icon-close"></i>
 						</div><!-- #dismiss -->
-				
+
 					</div><!-- .announcement-box -->
 				</div><!-- .announcement -->
 			</div><!-- .announcement_wrap .announcement_bar -->
 			<?php
+			do_action( 'wds_announcement_after' );
 		}
 	}
 
