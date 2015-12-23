@@ -5,11 +5,14 @@
  * @package WDS Announcements
  */
 
+/**
+ * Announcements frontend class.
+ */
 class WDS_Announcements_Frontend {
 	/**
 	 * Parent plugin class
 	 *
-	 * @var class
+	 * @var    class
 	 * @since  0.1.0
 	 */
 	protected $plugin = null;
@@ -17,8 +20,9 @@ class WDS_Announcements_Frontend {
 	/**
 	 * Constructor
 	 *
-	 * @since 0.1.0
-	 * @return  null
+	 * @since  0.1.0
+	 * @param  object $plugin Parent plugin class.
+	 * @return void
 	 */
 	public function __construct( $plugin ) {
 		$this->plugin = $plugin;
@@ -28,8 +32,8 @@ class WDS_Announcements_Frontend {
 	/**
 	 * Initiate our hooks
 	 *
-	 * @since 0.1.0
-	 * @return  null
+	 * @since  0.1.0
+	 * @return void
 	 */
 	public function hooks() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
@@ -43,7 +47,7 @@ class WDS_Announcements_Frontend {
 		    'post_type'      => 'wds-announcements'
 		) );
 	}
-	
+
 	public function show() {
 		if ( current( $this->get() ) === false ) {
 			return;
