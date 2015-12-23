@@ -96,6 +96,18 @@ class WDS_Announcements_Frontend {
 	}
 }
 
-function wds_announcements_content() {
+/**
+ * Public template tag to display the announcement.
+ *
+ * @param  boolean $echo Whether to echo or return the announcement.
+ * @return string
+ */
+function wds_announcements_content( $echo = false ) {
+	// Determine whether to echo or return the output.
+	if ( $echo ) {
+		echo wp_kses_post( wds_announcements()->announcements_frontend->show() );
+		return;
+	}
+
 	return wds_announcements()->announcements_frontend->show();
 }
