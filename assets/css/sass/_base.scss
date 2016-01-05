@@ -1,13 +1,13 @@
 //--------------------------------------------------------------
 // base Announcement styles
 //
-// - .announcement_wrap
-// - .announcement_bar
+// - .announcement-wrap
+// - .announcement-bar
 // - .has-announcement 
 // - .announcement
 //--------------------------------------------------------------
 
-.announcement_wrap {
+.announcement-wrap {
    background: lighten($color-red, 44%);
    left: 0;
    overflow: hidden;
@@ -16,7 +16,7 @@
    width: 100%;
    z-index: 999;
 
-   #dismiss {
+   .announcement-dismiss {
 	   color: darken($color-red, 30%);
 	   display: inline-block;
 	   margin-top: -15px;
@@ -34,12 +34,12 @@
 	   &:hover {
 		   cursor: pointer;
 	   }
-   } // #dismiss
-} // .announcement_wrap
+   } // .announcement-dismiss
+} // .announcement-wrap
 
-.announcement_bar {
+.announcement-display {
 	display: none;
-} // .announcement_bar
+} // .announcement-display
 
 .has-announcement {
 	
@@ -47,7 +47,7 @@
 		position: relative;
 	}
 	
-	.announcement_bar {
+	.announcement-display {
 		display: block;
 		
 		@include fadeInDown();
@@ -83,8 +83,8 @@
 	   }
    }
    
-   .message {
+   .announcement-message {
 	   line-height: 1.5;
 	   margin: 0 30px;
-   }
+   } // .announcement-message
 } // .announcement

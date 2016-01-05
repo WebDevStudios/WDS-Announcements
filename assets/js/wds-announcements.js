@@ -1,8 +1,8 @@
 /**
- * WDS Announcement - v0.1.0 - 2015-12-22
+ * WDS Announcement - v0.1.0 - 2016-01-05
  * http://webdevstudios.com
  *
- * Copyright (c) 2015;
+ * Copyright (c) 2016;
  * Licensed GPLv2+
  */
 
@@ -34,7 +34,7 @@ var jsCookie = require('js-cookie');
 		$c.window = $(window);
 		$c.document = $(document);
 		$c.body = $(document.body);
-		$c.announcementBar = $('.announcement_bar');
+		$c.announcementBar = $('.announcement-display');
 		$c.page = $('#page');
 		$c.dismiss = $('#dismiss');
 		$c.header = $('#masthead');
@@ -107,7 +107,7 @@ var jsCookie = require('js-cookie');
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"js-cookie":2}],2:[function(require,module,exports){
 /*!
- * JavaScript Cookie v2.0.4
+ * JavaScript Cookie v2.1.0
  * https://github.com/js-cookie/js-cookie
  *
  * Copyright 2006, 2015 Klaus Hartl & Fagner Brack
@@ -163,8 +163,12 @@ var jsCookie = require('js-cookie');
 					}
 				} catch (e) {}
 
-				value = encodeURIComponent(String(value));
-				value = value.replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g, decodeURIComponent);
+				if (!converter.write) {
+					value = encodeURIComponent(String(value))
+						.replace(/%(23|24|26|2B|3A|3C|3E|3D|2F|3F|40|5B|5D|5E|60|7B|7D|7C)/g, decodeURIComponent);
+				} else {
+					value = converter.write(value, key);
+				}
 
 				key = encodeURIComponent(String(key));
 				key = key.replace(/%(23|24|26|2B|5E|60|7C)/g, decodeURIComponent);
@@ -202,7 +206,9 @@ var jsCookie = require('js-cookie');
 				}
 
 				try {
-					cookie = converter && converter(cookie, name) || cookie.replace(rdecode, decodeURIComponent);
+					cookie = converter.read ?
+						converter.read(cookie, name) : converter(cookie, name) ||
+						cookie.replace(rdecode, decodeURIComponent);
 
 					if (this.json) {
 						try {
@@ -243,7 +249,7 @@ var jsCookie = require('js-cookie');
 		return api;
 	}
 
-	return init();
+	return init(function () {});
 }));
 
 },{}]},{},[1]);

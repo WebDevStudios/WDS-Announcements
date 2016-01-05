@@ -59,27 +59,25 @@ class WDS_Announcements_Frontend {
 			$link_end = $link ? '</a>' : '';
 			do_action( 'wds_announcement_before' );
 			?>
-			<div class="announcement_wrap announcement_bar">
+			<div class="announcement-wrap announcement-display">
 				<div class="announcement">
-					<div class="announcement-box">
 
-						<?php do_action( 'wds_announcement_top' ); ?>
+					<?php do_action( 'wds_announcement_top' ); ?>
 
-						<?php echo $link_start; ?>
-							<div class="message">
-								<span><?php echo get_the_title( $announcement->ID ); ?></span>
-							</div>
-						<?php echo $link_end; ?>
+					<?php echo $link_start; ?>
+						<div class="announcement-message">
+							<span><?php echo get_the_title( $announcement->ID ); ?></span>
+						</div><!-- .announcement-message -->
+					<?php echo $link_end; ?>
 
-						<?php do_action( 'wds_announcement_bottom' ); ?>
+					<?php do_action( 'wds_announcement_bottom' ); ?>
 
-						<div id="dismiss">
-							<i class="icon icon-close"></i>
-						</div><!-- #dismiss -->
+					<div id="dismiss" class="announcement-dismiss">
+						<i class="icon icon-close"></i>
+					</div><!-- #dismiss .announcement-dismiss -->
 
-					</div><!-- .announcement-box -->
 				</div><!-- .announcement -->
-			</div><!-- .announcement_wrap .announcement_bar -->
+			</div><!-- .announcement-wrap .announcement-display -->
 			<?php
 			do_action( 'wds_announcement_after' );
 		}
