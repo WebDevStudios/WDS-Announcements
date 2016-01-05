@@ -44,6 +44,10 @@ You can also immediately echo the announcement without using `echo` by passing a
 
 == Frequently Asked Questions ==
 
+1. Does the sticky announcement play nice with WP Admin Bar, or other `position: fixed;` elements on the page?
+Yes, for the most part. It was built to account for WP Admin Bar, as well as if you have a sticky header, i.e. looks for `#masthead`
+
+It is hard to account for any and every scenario where an element might be sticky, but we did our best.
 
 == Screenshots ==
 
