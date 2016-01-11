@@ -158,7 +158,7 @@ class WDS_Announcements {
 	public function plugin_classes() {
 		// Attach other plugin classes to the base plugin class.
 		$this->announcements = new WDS_Announcements_Cpt( $this );
-		//$this->announcements_visibility = new WDS_Announcements_Visibility( $this );
+		$this->announcements_options = new WDS_Announcements_Options( $this );
 		$this->announcements_frontend = new WDS_Announcements_Frontend( $this );
 	} // END OF PLUGIN CLASSES FUNCTION
 
@@ -255,8 +255,6 @@ class WDS_Announcements {
 		echo '<p>' . sprintf( __( 'WDS Announcements plugin is missing requirements and has been <a href="%s">deactivated</a>. Please make sure all requirements are available.', 'wds-announcements' ), admin_url( 'plugins.php' ) ) . '</p>';
 		echo '</div>';
 	}
-
-
 
 	/**
 	 * Include a file from the includes directory

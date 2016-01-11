@@ -1,13 +1,13 @@
 <?php
 /**
- * WDS Announcements Visibility options
+ * WDS Announcements Options options
  * @version 0.1.0
  * @package WDS Announcement
  */
 
 require_once dirname(__FILE__) . '/../vendor/cmb2/init.php';
 
-class WDS_Announcements_Visibility {
+class WDS_Announcements_Options {
 	/**
 	 * Parent plugin class
 	 *
@@ -22,7 +22,7 @@ class WDS_Announcements_Visibility {
 	 * @var    string
 	 * @since  0.1.0
 	 */
-	protected $key = 'wds_announcements_visibility';
+	protected $key = 'wds_announcements_options';
 
 	/**
 	 * Options page metabox id
@@ -30,7 +30,7 @@ class WDS_Announcements_Visibility {
 	 * @var    string
 	 * @since  0.1.0
 	 */
-	protected $metabox_id = 'wds_announcements_visibility_metabox';
+	protected $metabox_id = 'wds_announcements_options_metabox';
 
 	/**
 	 * Options Page title
@@ -56,7 +56,7 @@ class WDS_Announcements_Visibility {
 		$this->plugin = $plugin;
 		$this->hooks();
 
-		$this->title = __( 'Announcements Visibility', 'wds-announcements' );
+		$this->title = __( 'Options', 'wds-announcements' );
 	}
 
 	/**
@@ -79,6 +79,21 @@ class WDS_Announcements_Visibility {
 	 */
 	public function admin_init() {
 		register_setting( $this->key, $this->key );
+		
+		wp_register_style( 'wds-announcements-admin', WDS_Announcements::url( 'assets/css/admin' . $min . '.css' ) );
+	}
+	
+	/**
+	 * Enqueue Announcements options page stylesheet
+	 *
+	 * @since  0.1.0
+	 * @return void
+	 */
+	public function admin_page_styles() {
+		/*
+         * It will be called only on your plugin admin page, enqueue our stylesheet here
+         */
+        wp_enqueue_style( 'wds-announcements-admin' );
 	}
 
 	/**
@@ -99,6 +114,7 @@ class WDS_Announcements_Visibility {
 
 		// Include CMB CSS in the head to avoid FOUC
 		add_action( "admin_print_styles-{$this->options_page}", array( 'CMB2_hookup', 'enqueue_cmb_css' ) );
+		add_action( "admin_print_styles-{$this->options_page}", array( $this, 'admin_page_styles' ) );
 	}
 
 	/**
@@ -134,14 +150,11 @@ class WDS_Announcements_Visibility {
 				'value' => array( $this->key, )
 			),
 		) );
-
-		//Add your fields here
+		
 		$cmb->add_field( array(
-			'name'    => __( 'Test Text', 'myprefix' ),
-			'desc'    => __( 'field description (optional)', 'myprefix' ),
-			'id'      => 'test_text', // no prefix needed
-			'type'    => 'text',
-			'default' => __( 'Default Text', 'myprefix' ),
+		    'name' => 'Display Announcements?',
+		    'id'   => 'display_checkbox',
+		    'type' => 'checkbox'
 		) );
 
 	}
