@@ -121,7 +121,10 @@ module.exports = function (grunt) {
 					sourceComments: true,
 					sourceMap: true,
 				},
-                files: { 'assets/css/wds-announcements.css': 'assets/css/sass/styles.scss' }
+                files: { 
+					'assets/css/wds-announcements.css': 'assets/css/sass/styles.scss',
+					'assets/css/admin.css': 'assets/css/sass/admin.scss',
+				}
             }
         },
 		/**
@@ -137,7 +140,7 @@ module.exports = function (grunt) {
 					require('css-mqpacker')({ sort: true }),
 			]},
 			dist: {
-				src: ['assets/css/wds-announcements.css']
+				src: ['assets/css/wds-announcements.css', 'assets/css/admin.css']
 			}
 		},
 		/**
@@ -152,7 +155,8 @@ module.exports = function (grunt) {
 			},
 			dist: {
 				files: {
-					'assets/css/wds-announcements.min.css': 'assets/css/wds-announcements.css'
+					'assets/css/wds-announcements.min.css': 'assets/css/wds-announcements.css',
+					'assets/css/admin.min.css': 'assets/css/admin.css',
 				}
 			}
 		},
