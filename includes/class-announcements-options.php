@@ -156,6 +156,21 @@ class WDS_Announcements_Options {
 		    'id'   => 'display_checkbox',
 		    'type' => 'checkbox'
 		) );
-
+		
+		// Allow user to choose style
+		$cmb->add_field( array(
+		    'name'             => 'Style',
+		    'desc'             => 'Select the announcement bar style',
+		    'id'               => 'style_select',
+		    'type'             => 'select',
+		    'show_option_none' => true,
+		    'default'          => 'default',
+		    'options'          => array(
+		        'default' => __( 'Default', 'cmb2' ),
+				'error'   => __( 'Error', 'cmb2' ),
+				'success' => __( 'Success', 'cmb2' ),
+				'warning' => __( 'Warning', 'cmb2' ),
+		    ),
+		) );
 	}
 }
