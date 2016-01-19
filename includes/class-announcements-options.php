@@ -80,6 +80,8 @@ class WDS_Announcements_Options {
 	public function admin_init() {
 		register_setting( $this->key, $this->key );
 		
+		$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min'
+		
 		wp_register_style( 'wds-announcements-admin', WDS_Announcements::url( 'assets/css/admin' . $min . '.css' ) );
 	}
 	
