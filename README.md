@@ -48,7 +48,6 @@ Yes, for the most part. It was built to account for WP Admin Bar, as well as if 
 
 It is hard to account for any and every scenario where an element might be sticky, but we did our best.
 
-
 ## Screenshots ##
 
 
