@@ -1,6 +1,7 @@
 <?php
 /**
- * WDS Announcements Frontend
+ * WDS Announcements Frontend.
+ *
  * @version 0.1.0
  * @package WDS Announcements
  */
@@ -9,20 +10,20 @@
  * Announcements frontend class.
  */
 class WDS_Announcements_Frontend {
+
 	/**
-	 * Parent plugin class
+	 * Parent plugin class.
 	 *
-	 * @var    class
-	 * @since  0.1.0
+	 * @var object
+	 * @since 0.1.0
 	 */
 	protected $plugin = null;
 
 	/**
-	 * Constructor
+	 * Constructor.
 	 *
-	 * @since  0.1.0
-	 * @param  object $plugin Parent plugin class.
-	 * @return void
+	 * @since 0.1.0
+	 * @param object $plugin Parent plugin class.
 	 */
 	public function __construct( $plugin ) {
 		$this->plugin = $plugin;
@@ -30,9 +31,9 @@ class WDS_Announcements_Frontend {
 	}
 
 	/**
-	 * Initiate our hooks
+	 * Initiate our hooks.
 	 *
-	 * @since  0.1.0
+	 * @since 0.1.0
 	 * @return void
 	 */
 	public function hooks() {
@@ -45,7 +46,7 @@ class WDS_Announcements_Frontend {
 		return get_posts( array(
 			'posts_per_page' => '1',
 		    'post_status'    => 'publish',
-		    'post_type'      => 'wds-announcements'
+		    'post_type'      => 'wds-announcements',
 		) );
 	}
 
@@ -84,7 +85,7 @@ class WDS_Announcements_Frontend {
 	}
 
 	/**
-	 * Load sripts on the front end
+	 * Load sripts on the front end.
 	 **/
 	public function enqueue_scripts() {
 		$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '': '.min';
@@ -97,7 +98,7 @@ class WDS_Announcements_Frontend {
 /**
  * Public template tag to display the announcement.
  *
- * @param  boolean $echo Whether to echo or return the announcement.
+ * @param boolean $echo Whether to echo or return the announcement.
  * @return string
  */
 function wds_announcements_content( $echo = false ) {
