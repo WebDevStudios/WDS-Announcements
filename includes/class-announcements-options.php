@@ -78,10 +78,10 @@ class WDS_Announcements_Options {
 	 */
 	public function admin_init() {
 		register_setting( $this->key, $this->key );
-		
-		wp_register_style( 'wds-announcements-admin', WDS_Announcements::url( 'assets/css/admin' . $min . '.css' ) );
+
+		wp_register_style( 'wds-announcements-admin', WDS_Announcements::url( 'assets/css/admin.css' ) );
 	}
-	
+
 	/**
 	 * Enqueue Announcements options page stylesheet.
 	 *
