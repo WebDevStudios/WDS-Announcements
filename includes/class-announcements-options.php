@@ -121,7 +121,7 @@ class WDS_Announcements_Options {
 	 */
 	public function admin_page_display() {
 		?>
-		<div class="wrap cmb2-options-page <?php echo $this->key; ?>">
+		<div class="wrap cmb2-options-page <?php echo esc_attr( $this->key ); ?>">
 			<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
 			<?php cmb2_metabox_form( $this->metabox_id, $this->key ); ?>
 		</div>
