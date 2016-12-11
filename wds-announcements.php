@@ -31,15 +31,16 @@
  */
 
 /**
- * Built using generator-plugin-wp
+ * Built using generator-plugin-wp.
  */
 
 
 /**
- * Autoloads files with classes when needed
+ * Autoloads files with classes when needed.
  *
- * @since  0.1.0
- * @param  string $class_name Name of the class being requested
+ * @since 0.1.0
+ *
+ * @param string $class_name Name of the class being requested.
  * @return void
  */
 function wds_announcements_autoload_classes( $class_name ) {
@@ -58,74 +59,82 @@ spl_autoload_register( 'wds_announcements_autoload_classes' );
 
 
 /**
- * Main initiation class
+ * Main initiation class.
  *
- * @since  0.1.0
- * @var  string $version  Plugin version
- * @var  string $basename Plugin basename
- * @var  string $url      Plugin URL
- * @var  string $path     Plugin Path
+ * @since 0.1.0
+ *
+ * @var string $version  Plugin version.
+ * @var string $basename Plugin basename.
+ * @var string $url      Plugin URL.
+ * @var string $path     Plugin Path.
  */
 class WDS_Announcements {
 
 	/**
-	 * Current version
+	 * Current version.
 	 *
-	 * @var  string
-	 * @since  0.1.0
+	 * @var string
+	 * @since 0.1.0
 	 */
 	const VERSION = '0.1.0';
 
 	/**
-	 * URL of plugin directory
+	 * URL of plugin directory.
 	 *
 	 * @var string
-	 * @since  0.1.0
+	 * @since 0.1.0
 	 */
 	protected $url = '';
 
 	/**
-	 * Path of plugin directory
+	 * Path of plugin directory.
 	 *
 	 * @var string
-	 * @since  0.1.0
+	 * @since 0.1.0
 	 */
 	protected $path = '';
 
 	/**
-	 * Plugin basename
+	 * Plugin basename.
 	 *
 	 * @var string
-	 * @since  0.1.0
+	 * @since 0.1.0
 	 */
 	protected $basename = '';
 
 	/**
-	 * Singleton instance of plugin
+	 * Singleton instance of plugin.
 	 *
-	 * @var WDS_Announcement
-	 * @since  0.1.0
+	 * @var object WDS_Announcement
+	 * @since 0.1.0
 	 */
 	protected static $single_instance = null;
 
 	/**
-	 * Instance of WDS_Announcements
+	 * Instance of WDS_Announcements.
 	 *
 	 * @var WDS_Announcements
 	 */
 	protected $announcements;
 
 	/**
-	 * Instance of WDS_Announcements_Visibility
+	 * Instance of WDS_Announcements_Options.
 	 *
-	 * @var WDS_Announcements_Visibility
+	 * @var WDS_Announcements
 	 */
-	//protected $announcements_visibility;
+	protected $announcements_options;
+
+	/**
+	 * Instance of WDS_Announcements_Frontend.
+	 *
+	 * @var WDS_Announcements
+	 */
+	protected $announcements_frontend;
 
 	/**
 	 * Creates or returns an instance of this class.
 	 *
-	 * @since  0.1.0
+	 * @since 0.1.0
 	 * @return WDS_Announcements A single instance of this class.
 	 */
 	public static function get_instance() {
@@ -137,9 +146,9 @@ class WDS_Announcements {
 	}
 
 	/**
-	 * Sets up our plugin
+	 * Sets up our plugin.
 	 *
-	 * @since  0.1.0
+	 * @since 0.1.0
 	 */
 	protected function __construct() {
 		$this->basename = plugin_basename( __FILE__ );
@@ -152,7 +161,7 @@ class WDS_Announcements {
 	/**
 	 * Attach other plugin classes to the base plugin class.
 	 *
-	 * @since  0.1.0
+	 * @since 0.1.0
 	 * @return void
 	 */
 	public function plugin_classes() {
@@ -163,9 +172,9 @@ class WDS_Announcements {
 	} // END OF PLUGIN CLASSES FUNCTION
 
 	/**
-	 * Add hooks and filters
+	 * Add hooks and filters.
 	 *
-	 * @since  0.1.0
+	 * @since 0.1.0
 	 * @return void
 	 */
 	public function hooks() {
@@ -176,30 +185,28 @@ class WDS_Announcements {
 	}
 
 	/**
-	 * Activate the plugin
+	 * Activate the plugin.
 	 *
-	 * @since  0.1.0
-	 * @return void
+	 * @since 0.1.0
 	 */
 	function _activate() {
-		// Make sure any rewrite functionality has been loaded
+		// Make sure any rewrite functionality has been loaded.
 		flush_rewrite_rules();
 	}
 
 	/**
-	 * Deactivate the plugin
-	 * Uninstall routines should be in uninstall.php
+	 * Deactivate the plugin.
 	 *
-	 * @since  0.1.0
-	 * @return void
+	 * Uninstall routines should be in uninstall.php.
+	 *
+	 * @since 0.1.0
 	 */
 	function _deactivate() {}
 
 	/**
-	 * Init hooks
+	 * Init hooks.
 	 *
-	 * @since  0.1.0
-	 * @return void
+	 * @since 0.1.0
 	 */
 	public function init() {
 		if ( $this->check_requirements() ) {
@@ -208,19 +215,19 @@ class WDS_Announcements {
 	}
 
 	/**
-	 * Check if the plugin meets requirements and
-	 * disable it if they are not present.
+	 * Check if the plugin meets requirements and disable it if they are not present.
 	 *
-	 * @since  0.1.0
-	 * @return boolean result of meets_requirements
+	 * @since 0.1.0
+	 *
+	 * @return boolean Result of meets_requirements.
 	 */
 	public function check_requirements() {
 		if ( ! $this->meets_requirements() ) {
 
-			// Add a dashboard notice
+			// Add a dashboard notice.
 			add_action( 'all_admin_notices', array( $this, 'requirements_not_met_notice' ) );
 
-			// Deactivate our plugin
+			// Deactivate our plugin.
 			deactivate_plugins( $this->basename );
 
 			return false;
@@ -230,38 +237,40 @@ class WDS_Announcements {
 	}
 
 	/**
-	 * Check that all plugin requirements are met
+	 * Check that all plugin requirements are met.
 	 *
-	 * @since  0.1.0
+	 * @since 0.1.0
+	 *
 	 * @return boolean
 	 */
 	public static function meets_requirements() {
 		// Do checks for required classes / functions
-		// function_exists('') & class_exists('')
+		// function_exists('') & class_exists('').
 
-		// We have met all requirements
+		// We have met all requirements.
 		return true;
 	}
 
 	/**
-	 * Adds a notice to the dashboard if the plugin requirements are not met
+	 * Adds a notice to the dashboard if the plugin requirements are not met.
 	 *
-	 * @since  0.1.0
+	 * @since 0.1.0
+	 *
 	 * @return void
 	 */
 	public function requirements_not_met_notice() {
-		// Output our error
 		echo '<div id="message" class="error">';
 		echo '<p>' . sprintf( __( 'WDS Announcements plugin is missing requirements and has been <a href="%s">deactivated</a>. Please make sure all requirements are available.', 'wds-announcements' ), admin_url( 'plugins.php' ) ) . '</p>';
 		echo '</div>';
 	}
 
 	/**
-	 * Include a file from the includes directory
+	 * Include a file from the includes directory.
 	 *
-	 * @since  0.1.0
-	 * @param  string  $filename Name of the file to be included
-	 * @return bool    Result of include call.
+	 * @since 0.1.0
+	 *
+	 * @param string $filename Name of the file to be included.
+	 * @return bool Result of include call.
 	 */
 	public static function include_file( $filename ) {
 		$file = self::dir( 'includes/class-'. $filename .'.php' );
@@ -272,11 +281,12 @@ class WDS_Announcements {
 	}
 
 	/**
-	 * This plugin's directory
+	 * This plugin's directory.
 	 *
-	 * @since  0.1.0
-	 * @param  string $path (optional) appended path
-	 * @return string       Directory and path
+	 * @since 0.1.0
+	 *
+	 * @param string $path Appended path. Optional.
+	 * @return string Directory and path.
 	 */
 	public static function dir( $path = '' ) {
 		static $dir;
@@ -285,11 +295,12 @@ class WDS_Announcements {
 	}
 
 	/**
-	 * This plugin's url
+	 * This plugin's url.
 	 *
-	 * @since  0.1.0
-	 * @param  string $path (optional) appended path
-	 * @return string       URL and path
+	 * @since 0.1.0
+	 *
+	 * @param string $path Appended path. Optional.
+	 * @return string URL and path
 	 */
 	public static function url( $path = '' ) {
 		static $url;
@@ -302,12 +313,13 @@ class WDS_Announcements {
  * Grab the WDS_Announcement object and return it.
  * Wrapper for WDS_Announcement::get_instance()
  *
- * @since  0.1.0
- * @return WDS_Announcement  Singleton instance of plugin class.
+ * @since 0.1.0
+ *
+ * @return object WDS_Announcement Singleton instance of plugin class.
  */
 function wds_announcements() {
 	return WDS_Announcements::get_instance();
 }
 
-// Kick it off
+// Kick it off.
 add_action( 'plugins_loaded', array( wds_announcements(), 'hooks' ) );
