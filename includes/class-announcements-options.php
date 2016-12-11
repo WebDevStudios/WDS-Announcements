@@ -1,56 +1,57 @@
 <?php
 /**
- * WDS Announcements Options options
+ * WDS Announcements Options options.
  * @version 0.1.0
  * @package WDS Announcement
  */
 
-require_once dirname(__FILE__) . '/../vendor/cmb2/init.php';
+require_once dirname( __FILE__ ) . '/../vendor/cmb2/init.php';
 
 class WDS_Announcements_Options {
 	/**
-	 * Parent plugin class
+	 * Parent plugin class.
 	 *
-	 * @var    class
-	 * @since  0.1.0
+	 * @var object
+	 * @since 0.1.0
 	 */
 	protected $plugin = null;
 
 	/**
-	 * Option key, and option page slug
+	 * Option key, and option page slug.
 	 *
-	 * @var    string
-	 * @since  0.1.0
+	 * @var string
+	 * @since 0.1.0
 	 */
 	protected $key = 'wds_announcements_options';
 
 	/**
-	 * Options page metabox id
+	 * Options page metabox id.
 	 *
-	 * @var    string
-	 * @since  0.1.0
+	 * @var string
+	 * @since 0.1.0
 	 */
 	protected $metabox_id = 'wds_announcements_options_metabox';
 
 	/**
-	 * Options Page title
+	 * Options Page title.
 	 *
-	 * @var    string
-	 * @since  0.1.0
+	 * @var string
+	 * @since 0.1.0
 	 */
 	protected $title = '';
 
 	/**
-	 * Options Page hook
+	 * Options Page hook.
 	 * @var string
 	 */
 	protected $options_page = '';
 
 	/**
-	 * Constructor
+	 * Constructor.
 	 *
-	 * @since  0.1.0
-	 * @return void
+	 * @since 0.1.0
+	 *
+	 * @param object $plugin Plugin detail.
 	 */
 	public function __construct( $plugin ) {
 		$this->plugin = $plugin;
@@ -60,10 +61,9 @@ class WDS_Announcements_Options {
 	}
 
 	/**
-	 * Initiate our hooks
+	 * Initiate our hooks.
 	 *
-	 * @since  0.1.0
-	 * @return void
+	 * @since 0.1.0
 	 */
 	public function hooks() {
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
@@ -72,10 +72,9 @@ class WDS_Announcements_Options {
 	}
 
 	/**
-	 * Register our setting to WP
+	 * Register our setting to WP.
 	 *
-	 * @since  0.1.0
-	 * @return void
+	 * @since 0.1.0
 	 */
 	public function admin_init() {
 		register_setting( $this->key, $this->key );
@@ -84,23 +83,21 @@ class WDS_Announcements_Options {
 	}
 	
 	/**
-	 * Enqueue Announcements options page stylesheet
+	 * Enqueue Announcements options page stylesheet.
 	 *
-	 * @since  0.1.0
-	 * @return void
+	 * @since 0.1.0
 	 */
 	public function admin_page_styles() {
 		/*
-         * It will be called only on your plugin admin page, enqueue our stylesheet here
+         * It will be called only on your plugin admin page, enqueue our stylesheet here.
          */
         wp_enqueue_style( 'wds-announcements-admin' );
 	}
 
 	/**
-	 * Add menu options page
+	 * Add menu options page.
 	 *
-	 * @since  0.1.0
-	 * @return void
+	 * @since 0.1.0
 	 */
 	public function add_options_page() {
 		$this->options_page = add_submenu_page(
@@ -118,10 +115,9 @@ class WDS_Announcements_Options {
 	}
 
 	/**
-	 * Admin page markup. Mostly handled by CMB2
+	 * Admin page markup. Mostly handled by CMB2.
 	 *
-	 * @since  0.1.0
-	 * @return void
+	 * @since 0.1.0
 	 */
 	public function admin_page_display() {
 		?>
@@ -135,8 +131,7 @@ class WDS_Announcements_Options {
 	/**
 	 * Add custom fields to the options page.
 	 *
-	 * @since  0.1.0
-	 * @return void
+	 * @since 0.1.0
 	 */
 	public function add_options_page_metabox() {
 
@@ -145,7 +140,7 @@ class WDS_Announcements_Options {
 			'hookup'     => false,
 			'cmb_styles' => false,
 			'show_on'    => array(
-				// These are important, don't remove
+				// These are important, don't remove.
 				'key'   => 'options-page',
 				'value' => array( $this->key, )
 			),
