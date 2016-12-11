@@ -91,7 +91,7 @@ class WDS_Announcements_Options {
 		/*
          * It will be called only on your plugin admin page, enqueue our stylesheet here.
          */
-        wp_enqueue_style( 'wds-announcements-admin' );
+		wp_enqueue_style( 'wds-announcements-admin' );
 	}
 
 	/**
@@ -101,11 +101,11 @@ class WDS_Announcements_Options {
 	 */
 	public function add_options_page() {
 		$this->options_page = add_submenu_page(
-			'edit.php?post_type=wds-announcements', 
-			$this->title, 
-			$this->title, 
-			'manage_options', 
-			$this->key, 
+			'edit.php?post_type=wds-announcements',
+			$this->title,
+			$this->title,
+			'manage_options',
+			$this->key,
 			array( $this, 'admin_page_display' )
 		);
 
@@ -142,14 +142,14 @@ class WDS_Announcements_Options {
 			'show_on'    => array(
 				// These are important, don't remove.
 				'key'   => 'options-page',
-				'value' => array( $this->key, )
+				'value' => array( $this->key ),
 			),
 		) );
-		
+
 		$cmb->add_field( array(
 		    'name' => 'Display Announcements?',
 		    'id'   => 'display_checkbox',
-		    'type' => 'checkbox'
+		    'type' => 'checkbox',
 		) );
 
 	}
